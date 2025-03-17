@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Q&A - Campus Career Connect</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
         body {
             background-color: #000;
@@ -216,25 +217,24 @@
 <body>
     <!-- Banner -->
     <div class="banner">
-        <img src="8-removebg-preview.png" alt="Logo">
+        <img src="{{ url_for('static', filename='images/8-removebg-preview.png') }}" alt="Logo">
         <!-- Logo on the right wrapped in a button -->
         <button class="logo right" onclick="logout()">
-            <img src="9-removebg-preview.png" alt="Campus Career Connect Logo">
+            <i class="bi bi-box-arrow-right" style="font-size: 1.5rem; color: #000;"></i> <!-- Bootstrap icon for logout -->
         </button>
     </div>
-
     <!-- Menu Button -->
     <button class="menu-btn" id="menuBtn">&#9776;</button>
 
     <!-- Sidebar Menu -->
     <div class="sidebar" id="sidebar">
-        <a href="Home2.html">Home</a>
-        <a href="MI.html">Mock Interviews</a>
-        <a href="AT.html">AptiTest</a>
-        <a href="CC.html">Coding Challenges</a>
-        <a href="PD.html">Progress Dashboard</a>
-        <a href="AI.html">Alumni Interaction</a>
-        <a href="about.html">About Us</a>
+        <a href="{{ url_for('home2') }}">Home</a>
+        <a href="{{ url_for('student_MI') }}">Mock Interviews</a>
+        <a href="{{ url_for('student_at') }}">AptiTest</a>
+        <a href="{{ url_for('student_cc') }}">Coding Challenges</a>
+        <a href="{{ url_for('student_pd') }}">Progress Dashboard</a>
+        <a href="{{ url_for('student_ai') }}">Alumni Interaction</a>
+        <a href="{{ url_for('about') }}">About Us</a>
     </div>
 
     <!-- Main Content -->
@@ -307,7 +307,7 @@
 
         function logout() {
             alert('You have logged out!');
-            window.location.href = 'index.html'; // Redirect to the login page
+            window.location.href =  "{{ url_for('home') }}"; // Redirect to the login page
         }
     </script>
 </body>
